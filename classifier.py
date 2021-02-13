@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+import colorama
+
 CLÉS = (
     "Numéro Atomique",
     "Nom",
@@ -70,7 +72,9 @@ def créer_tableau(éléments: list) -> list:
     return tableau
 
 
-def afficher_tableau(tableau: list) -> None:
+def afficher_tableau(tableau: list, couleur=None) -> None:
+    if couleur:
+        print(end=couleur)
     print("┌─" + 17 * "─┬─" + "─┐")
     for i in range(len(tableau)):
         print(end="│")
@@ -81,10 +85,12 @@ def afficher_tableau(tableau: list) -> None:
             print("├─" + 17 * "─┼─" + "─┤")
         else:
             print("└─" + 17 * "─┴─" + "─┘")
+    if couleur:
+        print(end=colorama.Style.RESET_ALL)
 
 
 if __name__ == "__main__":
     éléments = lire_fichier()
     tableau = créer_tableau(éléments)
-    afficher_tableau(tableau)
+    afficher_tableau(tableau, couleur=colorama.Fore.BLUE)
 
