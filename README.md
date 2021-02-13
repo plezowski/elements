@@ -6,3 +6,6 @@
 
 ## Comment ça marche ?
 Exécuter `./classifier.py` pour voir la classification des premiers éléments.
+
+## Limitations
+Ne concerne que les 20 premiers éléments.
