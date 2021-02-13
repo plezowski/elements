@@ -4,7 +4,7 @@ AtomicNumber,Element,Symbol,AtomicMass,NumberofNeutrons,NumberofProtons,Numberof
 3,Lithium,Li,6.941,4,3,3,2,1,solide
 4,Beryllium,Be,9.012,5,4,4,2,2,solide
 5,Bore,B,10.811,6,5,5,2,13,solide
-6,Carbe,C,12.011,6,6,6,2,14,solide
+6,Carbone,C,12.011,6,6,6,2,14,solide
 7,Azote,N,14.007,7,7,7,2,15,gaz
 8,Oxygène,O,15.999,8,8,8,2,16,gaz
 9,Fluor,F,18.998,10,9,9,2,17,gaz
