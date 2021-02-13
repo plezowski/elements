@@ -17,19 +17,34 @@ CLÉS = (
 class Élément:
     """Un élément de la classification périodique"""
 
-    def __init__(self, liste: list) -> None:
-        self.num = int(liste[0])
-        self.nom = liste[1]
-        self.symbole = liste[2]
-        self.mass = float(liste[3])
-        self.neutrons = int(liste[4])
-        self.protons = int(liste[5])
-        self.électrons = int(liste[6])
-        self.période = int(liste[7])
-        self.groupe = int(liste[8])
-        self.phase = liste[9]
+    def __init__(self, liste: list = []) -> None:
+        if liste == []:
+            self.num = 0
+            self.nom = "__aucun__"
+        else:
+            self.num = int(liste[0])
+            self.nom = liste[1]
+            self.symbole = liste[2]
+            self.mass = float(liste[3])
+            self.neutrons = int(liste[4])
+            self.protons = int(liste[5])
+            self.électrons = int(liste[6])
+            self.période = int(liste[7])
+            self.groupe = int(liste[8])
+            self.phase = liste[9]
+
+    def estVide(self) -> bool:
+        return self.num == 0
+
+    def versSymboleCar(self):
+        if self.estVide():
+            return "  "
+        else:
+            return f"{self.symbole:2}"
 
     def __repr__(self) -> str:
+        if self.estVide():
+            return "Aucun élément"
         return self.nom
 
 
@@ -46,7 +61,30 @@ def lire_fichier(nom_fichier: str = "liste/elements.csv", clés: tuple = CLÉS) 
     return éléments
 
 
+def créer_tableau(éléments: list) -> list:
+    tableau = []
+    for e in éléments:
+        while e.période > len(tableau):
+            tableau.append(list(Élément() for _ in range(18)))
+        tableau[e.période - 1][e.groupe - 1] = e
+    return tableau
+
+
+def afficher_tableau(tableau: list) -> None:
+    print("┌─" + 17 * "─┬─" + "─┐")
+    for i in range(len(tableau)):
+        print(end="│")
+        for élément in tableau[i]:
+            print(élément.versSymboleCar(), end="│")
+        print()
+        if i < len(tableau) - 1:
+            print("├─" + 17 * "─┼─" + "─┤")
+        else:
+            print("└─" + 17 * "─┴─" + "─┘")
+
+
 if __name__ == "__main__":
     éléments = lire_fichier()
-    for e in éléments:
-        print(e)
+    tableau = créer_tableau(éléments)
+    afficher_tableau(tableau)
+
