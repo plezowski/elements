@@ -92,5 +92,5 @@ def afficher_tableau(tableau: list, couleur=None) -> None:
 if __name__ == "__main__":
     éléments = lire_fichier()
     tableau = créer_tableau(éléments)
-    afficher_tableau(tableau, couleur=colorama.Fore.BLUE)
+    afficher_tableau(tableau, couleur=colorama.Fore.RED)
 
