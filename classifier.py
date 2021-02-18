@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+from io import TextIOBase
 import colorama
 
 CLÉS = (
@@ -89,8 +90,20 @@ def afficher_tableau(tableau: list, couleur=None) -> None:
         print(end=colorama.Style.RESET_ALL)
 
 
+def créer_tableau_markdown(tableau: list, nom_fichier: str = "tableau.md") -> None:
+    with open(nom_fichier, "w", encoding="utf-8") as f:
+        texte = "|" + "|".join("<!-- -->" for _ in tableau[0]) + "|\n"
+        texte += "|" + "|".join(":------:" for _ in tableau[0]) + "|\n"
+        for i in range(len(tableau)):
+            for élément in tableau[i]:
+                texte += "|" + f"{élément.versSymboleCar():^8}"
+            texte += "|\n"
+        f.write(texte)
+
+
 if __name__ == "__main__":
     éléments = lire_fichier()
     tableau = créer_tableau(éléments)
     afficher_tableau(tableau, couleur=colorama.Fore.RED)
+    créer_tableau_markdown(tableau)
 
