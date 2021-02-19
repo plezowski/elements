@@ -2,6 +2,7 @@
 
 from io import TextIOBase
 import colorama
+import sys
 
 CLÉS = (
     "Numéro Atomique",
@@ -105,5 +106,5 @@ if __name__ == "__main__":
     éléments = lire_fichier()
     tableau = créer_tableau(éléments)
     afficher_tableau(tableau, couleur=colorama.Fore.RED)
-    créer_tableau_markdown(tableau)
+    créer_tableau_markdown(tableau, sys.argv[1] if len(sys.argv) else "tableau.md")
 
