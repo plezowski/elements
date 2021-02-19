@@ -5,7 +5,10 @@
 * Jouer avec github.
 
 ## Comment ça marche ?
-Exécuter `./classifier.py` pour voir la classification des premiers éléments.
+Exécuter `./classifier.py nom_fichier` pour
+* voir la classification des premiers éléments,
+* créer le fichier `nom_fichier` (format _markdown_) qui contient le tableau.
+  Par défaut, le nom est `tableau.md`.
 
 ## Requis
 * `python3`
