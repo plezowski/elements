@@ -1,0 +1,40 @@
+---
+name: "Produire une pré-version à chaque push"
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  pre-release:
+    name: "Pre version"
+    runs-on: "ubuntu-latest"
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Installe Python 3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Installer les bibliothèques requises
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install colorama
+      - name: créer le fichier markdown
+        run: python classifier.py elements.md
+      - name: Produire et charger le fichier
+        uses: actions/upload-artifact@v2
+        with:
+          name: elements
+          path: elements.md
+      - name: créer une release
+        uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: "Dernière version"
+          files: |
+            elements.md
