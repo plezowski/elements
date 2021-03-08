@@ -16,3 +16,6 @@ Exécuter `./classifier.py nom_fichier` pour
 
 ## Limitations
 Ne concerne que les 20 premiers éléments.
+
+## Actions
+* Utilise les actions github.
