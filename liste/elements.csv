@@ -19,3 +19,13 @@ AtomicNumber,Element,Symbol,AtomicMass,NumberofNeutrons,NumberofProtons,Numberof
 18,Argon,Ar,39.948,22,18,18,3,18,gaz
 19,Potassium,K,39.098,20,19,19,4,1,solide
 20,Calcium,Ca,40.078,20,20,20,4,2,solide
+21,Scandium,Sc,44.955,24,21,21,4,3,solide
+22,Titane,Ti,47.867,26,22,22,4,4,solide
+23,Vandium,V,50.941,28,23,23,4,5,solide
+24,Chrome,Cr,51.996,28,24,24,4,6,solide
+25,Manganèse,Mn,54.938,30,25,25,4,7,solide
+26,Fer,Fe,55.845,30,26,26,4,8,solide
+27,Cobalt,Co,58.933,32,27,27,4,9,solide
+28,Nickel,Ni,58.693,30,28,28,4,10,solide
+29,Cuivre,Cu,62.554,35,29,29,4,11,solide
+30,Zinc,Zn,65.409,35,30,30,4,12,solide
